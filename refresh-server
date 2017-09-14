@@ -1,0 +1,3 @@
+#!/bin/bash
+docker build . -t httpd2.2
+docker run -p 80:80 -p 443:443 httpd2.2
