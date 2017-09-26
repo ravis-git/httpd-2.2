@@ -10,10 +10,13 @@ if [ ! -z $STOP_CONTAINER_ID ]
 fi
 
 # start the new container
-CONTAINER_ID=$(docker run --name wintest11g -p 80:80 -p 443:443 -d httpd2.2)
+CONTAINER_ID=$(docker run --name wintest11g --link node -p 80:80 -p 443:443 -d httpd2.2)
 echo apache server container started with id:  $CONTAINER_ID
+
+# docker network connect --net-alias node local-bridge $CONTAINER_ID
 
 # tail the logs
 docker logs -f $CONTAINER_ID
+
 
 echo done!!
