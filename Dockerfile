@@ -1,7 +1,7 @@
 FROM httpd:2.2.34
 # RUN apt-get install -y curl
 
-RUN echo check reload 5
+RUN echo check reload 2
 
 COPY ./win-httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./public.html /usr/local/apache2/htdocs/
